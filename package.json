@@ -1,0 +1,50 @@
+{
+  "name": "slackradio-api",
+  "description": "",
+  "version": "1.0.0",
+  "homepage": "",
+  "main": "src/",
+  "keywords": [
+    "feathers"
+  ],
+  "license": "MIT",
+  "repository": {},
+  "author": {},
+  "contributors": [],
+  "bugs": {},
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "scripts": {
+    "test": "npm run mocha",
+    "start": "node index",
+    "mocha": "NODE_ENV=test mocha test/ --recursive"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "cors": "^2.7.1",
+    "expect.js": "^0.3.1",
+    "feathers": "^2.0.0",
+    "feathers-authentication": "^0.7.0",
+    "feathers-configuration": "^0.2.2",
+    "feathers-errors": "^2.1.0",
+    "feathers-hooks": "^1.5.1",
+    "feathers-nedb": "^2.2.3",
+    "feathers-rest": "^1.2.4",
+    "feathers-socketio": "^1.3.3",
+    "lodash": "^4.8.2",
+    "nedb": "^1.8.0",
+    "passport": "^0.3.2",
+    "replay": "^2.0.6",
+    "serve-favicon": "^2.3.0",
+    "slack": "^6.1.0",
+    "winston": "^2.2.0",
+    "youtube-dl": "^1.11.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1",
+    "mocha": "^2.4.5",
+    "request": "^2.70.0"
+  }
+}

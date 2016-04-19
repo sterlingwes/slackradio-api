@@ -1,0 +1,16 @@
+{
+  "host": "API_HOST",
+  "port": 80,
+  "nedb": "NEDB_BASE_PATH",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "TOKEN_SECRET"
+    },
+    "local": {
+      "usernameField": "user_id",
+      "passwordField": "access_token"
+    }
+  }
+}

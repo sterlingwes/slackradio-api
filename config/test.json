@@ -1,0 +1,20 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "nedb": "../data_test/",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "TOKEN_SECRET"
+    },
+    "local": {
+      "usernameField": "user_id",
+      "passwordField": "access_token"
+    }
+  },
+  "slack": {
+    "id": "",
+    "secret": ""
+  }
+}
