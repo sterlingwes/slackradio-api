@@ -12,9 +12,5 @@
       "usernameField": "user_id",
       "passwordField": "access_token"
     }
-  },
-  "slack": {
-    "id": "",
-    "secret": ""
   }
 }

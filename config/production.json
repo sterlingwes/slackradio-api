@@ -13,8 +13,6 @@
       "passwordField": "access_token"
     }
   },
-  "slack": {
-    "id": "SLACK_ID",
-    "secret": "SLACK_SECRET"
-  }
+  "slackId": "SLACK_ID",
+  "slackSecret": "SLACK_SECRET"
 }
