@@ -98,14 +98,22 @@ class Playlist {
     }
   }
 
+  hasSong (newSong) {
+    return _.find(this.songs, song => {
+      return newSong.id === song.id
+    })
+  }
+
   /*
    * queue a song up next to the currently playing song
    */
   addNext (song) {
+    if (this.hasSong(song)) return false
     var current = this.getCurrent()
     var nextIndex = current.index + 1
     if (current.remaining <= addNextWindow) nextIndex++
     this.songs.splice(nextIndex, 0, song)
+    return true
   }
 
   toJSON () {

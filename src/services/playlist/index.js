@@ -4,6 +4,7 @@ const path = require('path')
 const NeDB = require('nedb')
 const service = require('feathers-nedb')
 const hooks = require('./hooks')
+const authHooks = require('feathers-authentication').hooks
 
 module.exports = function () {
   const app = this
@@ -34,5 +35,12 @@ module.exports = function () {
 
   const playlistService = app.service('/playlists')
 
+  playlistService.before({
+    all: [
+      authHooks.verifyToken(),
+      authHooks.populateUser(),
+      authHooks.restrictToAuthenticated()
+    ]
+  })
   playlistService.after(hooks.after)
 }

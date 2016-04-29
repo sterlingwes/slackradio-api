@@ -7,22 +7,23 @@ const Playlist = require('../../../types/playlist.type')
 module.exports = function updatePlaylist (hook) {
   const playlists = hook.app.service('playlists')
   var hr = hook.result
-  if (hr.hasPlaylist()) {
-    return playlists.get(hr.playlist_id)
+  var pl
+  if (hr.playlist) {
+    pl = new Playlist(hr.playlist)
+    var added = pl.addNext(hr.toJSON())
+    if (!added) return Promise.resolve(hr.playlist)
+
+    return playlists.update(pl._id, pl.toJSON())
       .then(playlist => {
-        playlist = playlist[0]
-        var pl = new Playlist(playlist)
-        pl.addNext(hr.toJSON())
-        return playlists.update(playlist._id, pl.toJSON())
-      })
-      .then(playlist => {
+        this.emit('songAdded', playlist)
         hook.result = playlist
         return hook
       })
   } else {
-    var pl = new Playlist(hr.toPlaylist())
+    pl = new Playlist(hr.toPlaylist())
     return playlists.create(pl.toJSON())
       .then(playlist => {
+        this.emit('playlistAdded', playlist)
         hook.result = playlist
         return hook
       })

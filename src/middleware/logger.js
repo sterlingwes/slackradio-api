@@ -1,10 +1,20 @@
 'use strict'
 
 const winston = require('winston')
+const noop = function () {}
+const testLogger = {
+  info: noop,
+  warn: noop,
+  error: noop
+}
 
 module.exports = function (app) {
   // Add a logger to our app object for convenience
   app.logger = winston
+
+  if (process.env.NODE_ENV === 'test') {
+    app.logger = testLogger
+  }
 
   return function (error, req, res, next) {
     if (process.env.NODE_ENV === 'test') return next(error)

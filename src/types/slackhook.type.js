@@ -38,12 +38,8 @@ class SlackWebhook {
     return base
   }
 
-  setPlaylist (id) {
-    this.playlist_id = id
-  }
-
-  hasPlaylist () {
-    return !!this.playlist_id
+  setPlaylist (playlist) {
+    this.playlist = playlist
   }
 
   saveDetail (detail) {
@@ -58,6 +54,6 @@ class SlackWebhook {
   toJSON () {
     return this.song
   }
-} 
+}
 
 module.exports = SlackWebhook

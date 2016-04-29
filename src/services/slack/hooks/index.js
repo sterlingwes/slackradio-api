@@ -2,6 +2,9 @@
 
 const populateUser = require('./populateUser.hook')
 const addOrUpdateUser = require('./addUpdateUser.hook')
+const populateUserTeam = require('./populateUserTeam.hook')
+const addUserTeam = require('./addUserTeam.hook')
+const filterUser = require('./filterUser.hook')
 
 exports.before = {
   all: [],
@@ -19,7 +22,10 @@ exports.after = {
   get: [],
   create: [
     populateUser,
-    addOrUpdateUser
+    addOrUpdateUser,
+    populateUserTeam(),
+    addUserTeam(),
+    filterUser
   ],
   update: [],
   patch: [],
