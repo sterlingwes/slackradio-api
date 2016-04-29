@@ -9,7 +9,7 @@ module.exports = function () {
   const app = this
 
   const db = new NeDB({
-    filename: path.join(app.get('nedb'), 'users.db'),
+    filename: path.join(app.get('nedb'), 'teams.db'),
     autoload: true
   })
 
@@ -21,10 +21,10 @@ module.exports = function () {
     }
   }
 
-  app.use('/users', service(options))
+  app.use('/teams', service(options))
 
-  const userService = app.service('/users')
+  const teamService = app.service('/teams')
 
-  userService.before(hooks.before)
-  userService.after(hooks.after)
+  teamService.before(hooks.before)
+  teamService.after(hooks.after)
 }

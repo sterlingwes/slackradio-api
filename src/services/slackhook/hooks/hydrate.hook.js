@@ -9,7 +9,8 @@ module.exports = function hydrate (hook) {
     return hook.app.service('playlists').find(hr.getPlaylistQuery())
       .then(playlists => {
         if (playlists.data.length) {
-          hr.setPlaylist(playlists.data[0]._id)
+          var playlist = playlists.data[0]
+          hr.setPlaylist(playlist)
         }
         return fetchDetail(hook)
       })

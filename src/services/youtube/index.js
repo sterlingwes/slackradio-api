@@ -22,7 +22,6 @@ function shrink (hook) {
 class Service {
   constructor (options) {
     this.options = options || {}
-    this.events = ['done']
   }
 
   find (params) {

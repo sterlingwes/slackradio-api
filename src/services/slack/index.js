@@ -9,7 +9,6 @@ var slackId, slackSecret
 class Service {
   constructor (options) {
     this.options = options || {}
-    this.events = ['done']
   }
 
   create (data) {
@@ -45,8 +44,13 @@ module.exports = function () {
 
   app.use('/slack', new Service())
 
-  slackId = app.get('slack.id')
-  slackSecret = app.get('slack.secret')
+  slackId = app.get('slackId')
+  slackSecret = app.get('slackSecret')
+
+  if (process.env.NODE_ENV !== 'test') {
+    if (!slackId) console.warn('WARNING: no SLACK_ID provided')
+    if (!slackSecret) console.warn('WARNING: no SLACK_SECRET provided')
+  }
 
   const slackService = app.service('/slack')
 
