@@ -9,7 +9,7 @@ module.exports = function () {
 
     return teams.find({ query: { team_id: hook.result.team_id } })
       .then(teams => {
-        var team = teams.data[0]
+        var team = teams.data[0] // _id, team_id, team_name
         if (!team) return hook
         hook.params.team = new Team(team)
         return hook

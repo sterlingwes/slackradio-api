@@ -2,6 +2,10 @@
 
 const User = require('../../../types/user.type')
 
+/*
+ * populate user attempts to fetch an existing user
+ * for the authenticated slack user_id
+ */
 module.exports = function (hook) {
   hook.app.logger.info('slack auth', hook.result)
   var userId = hook.result.user_id

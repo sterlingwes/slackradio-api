@@ -1,6 +1,5 @@
 'use strict'
 
-const winston = require('winston')
 const noop = function () {}
 const testLogger = {
   info: noop,
@@ -10,7 +9,8 @@ const testLogger = {
 
 module.exports = function (app) {
   // Add a logger to our app object for convenience
-  app.logger = winston
+  var winston = app.logger = require('winston')
+  app.logger.level = 'debug'
 
   if (process.env.NODE_ENV === 'test') {
     app.logger = testLogger

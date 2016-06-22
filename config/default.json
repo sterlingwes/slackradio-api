@@ -6,7 +6,8 @@
   "auth": {
     "token": {
       "secret": "bjaf4NXdXgrjT3zVom7gUaXm+Fa15gTcAX0IO3ZUkuVuUnrPmKhy2T/NeEWoJP5E5aMyfZMCNRoVe5xQ8bLdTg=="
-    }
+    },
+    "local": {}
   },
   "slackId": "SLACK_ID",
   "slackSecret": "SLACK_SECRET"
