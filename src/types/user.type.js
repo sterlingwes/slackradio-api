@@ -26,6 +26,7 @@ class SlackUser {
   }
 
   updateBase (user) {
+    user.password = user.access_token
     _.extend(this.o, user)
   }
 

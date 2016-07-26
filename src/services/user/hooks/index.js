@@ -19,6 +19,7 @@ exports.before = {
   ],
   update: [
     auth.verifyToken(),
+    auth.hashPassword(),
     auth.populateUser(),
     auth.restrictToAuthenticated()
   ],
